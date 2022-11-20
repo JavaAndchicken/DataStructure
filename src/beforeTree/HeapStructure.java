@@ -1,5 +1,7 @@
 package beforeTree;
 
+import java.util.ArrayList;
+
 public class HeapStructure {
 
     //数组中有效元素的长度
@@ -51,6 +53,7 @@ public class HeapStructure {
             //当前堆中没有值
             return;
         }
+        //将根结点和最后一个节点进行交换
         swap(arr, index, size);
         //交换完成之后，将size缩减一，即将根结点取消挂载
         size--;

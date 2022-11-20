@@ -1,6 +1,8 @@
 package review.sort;
 
 
+import java.util.Arrays;
+
 /**
  * 归并排序-->复习版
  */
@@ -15,48 +17,9 @@ public class MergeSort {
            ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
     public static void main(String[] args){
-        /*int[] arr = new int[]{3,5,6,2,5,7,2,1};
+        int[] arr = new int[]{3,5,6,2,5,7,2,1};
         mergeSort(arr,0);
         System.out.println(Arrays.toString(arr));
-*/
-
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(1);
-        ListNode node3 = new ListNode(2);
-        node1.next = node2;
-        node2.next = node3;
-        deleteDuplicates(node1);
-
-    }
-
-
-    public static ListNode deleteDuplicates(ListNode head) {
-        //方法二：在原链表上进行操作  使用两个指针cur next
-        // 比较两个指针的值  如果两个指针的值相等 让next后移,cur不动  然后cur指向next 。再让两个指针同时移动
-        if(head == null || head.next == null){
-            return head;
-        }
-        ListNode curPointer = head;
-        ListNode nextPointer = head.next;
-        int curValue = curPointer.val;
-        int nextValue = nextPointer.val;
-        while(nextPointer != null){
-            while(curValue == nextValue && nextPointer != null){
-                //两个指针的值相等 让next先后移
-                nextPointer = nextPointer.next;
-                nextValue = nextPointer.val;
-                //curPointer不动
-            }
-            //当来到这个位置  就是两个指针的值不同  让cur的next指向当前的nextPointer
-            curPointer.next = nextPointer;
-            //然后同时移动指针
-            curPointer = nextPointer;
-            if(nextPointer != null){
-                nextPointer = nextPointer.next;
-            }
-
-        }
-        return head;
     }
 
     //递归实现
